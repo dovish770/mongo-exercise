@@ -2,6 +2,8 @@ import express from 'express'
 import dotenv from "dotenv"
 import connectDb from "./config/db.js"
 import usersRouter from './Routes/usersRouts.js'
+import authRoutes from './Routes/loginRouts.js'
+
 
 dotenv.config();
 
@@ -12,5 +14,6 @@ connectDb();
 
 app.use(express.json());
 app.use('/users', usersRouter);
+app.use('/auth', authRoutes);
 
 app.listen(PORT, ()=> {console.log('server is on ' + PORT) })

@@ -1,9 +1,9 @@
 import express from 'express';
-import {createUser, deleteUser, getUsers, updateUser} from '../controllers/userController.js'
+import {deleteStudent, updateStudent, getUsers} from '../controllers/studentController.js'
 
 const router = express.Router();
 
-router.route('/').get(getUsers).post(createUser)
-router.route('/:id').delete(deleteUser).put(updateUser);
+router.get('/', getUsers)
+router.route('/:id').delete(deleteStudent).put(updateStudent);
 
 export default router;
